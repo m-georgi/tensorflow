@@ -111,7 +111,7 @@ for arch in $archs; do
                         PLATFORM_CPPFLAGS=-DNSYNC_USE_CPP11_TIMEPOINT -DNSYNC_ATOMIC_CPP11 \
                                           -I../../platform/c++11.futex \
                                           -I../../platform/c++11 -I../../platform/gcc \
-                                          -I../../platform/posix -pthread
+                                          -I../../platform/posix -pthread -fPIC
                         PLATFORM_CFLAGS=-std=c++11 -Werror -Wall -Wextra -pedantic
                         PLATFORM_LDFLAGS=-pthread
                         MKDEP=${CC} -M -std=c++11

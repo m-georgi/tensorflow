@@ -74,7 +74,7 @@ HOST_GENDIR := $(MAKEFILE_DIR)/gen/host_obj/
 
 # Settings for the host compiler.
 HOST_CXX := $(CC_PREFIX) gcc
-HOST_CXXFLAGS := --std=c++11
+HOST_CXXFLAGS := --std=c++11 -fPIC
 HOST_LDOPTS :=
 ifeq ($(HAS_GEN_HOST_PROTOC),true)
 	HOST_LDOPTS += -L$(MAKEFILE_DIR)/gen/protobuf-host/lib
@@ -156,7 +156,7 @@ CXX := $(CC_PREFIX) gcc
 OPTFLAGS := -O2
 
 ifneq ($(TARGET),ANDROID)
-  OPTFLAGS += -march=native
+  OPTFLAGS += -DSELECTIVE_REGISTRATION -DSUPPORT_SELECTIVE_REGISTRATION
 endif
 
 CXXFLAGS := --std=c++11 -DIS_SLIM_BUILD -fno-exceptions -DNDEBUG $(OPTFLAGS)
